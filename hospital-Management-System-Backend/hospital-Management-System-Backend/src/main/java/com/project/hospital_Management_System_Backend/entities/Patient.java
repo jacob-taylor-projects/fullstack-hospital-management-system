@@ -11,7 +11,8 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Data
-public class Patient {  @Id
+public class Patient {
+    @Id
 @GeneratedValue
 private Long id;
 
