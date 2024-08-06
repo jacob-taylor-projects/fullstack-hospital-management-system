@@ -19,7 +19,7 @@ public class CompanyController {
     public Set<CompanyDto> getAllEmployeesCompanies(@RequestBody CredentialsDto credentialDto){
         return companyService.getAllEmployeesCompanies(credentialDto);
     }
-    @GetMapping("/all-employees")
+    @GetMapping("/all-patients")
     public Set<CompanyDto> getAllPatientsCompanies(@RequestBody CredentialsDto credentialDto){
         return companyService.getAllPatientsCompanies(credentialDto);
     }
