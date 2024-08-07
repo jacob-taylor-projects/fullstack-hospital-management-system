@@ -99,9 +99,9 @@ public class Seeder implements CommandLineRunner {
         employee2.setGender("male");
         employee2.setAddress("200 street");
         employee2.setAdmin(true);
-        employee1.setDoctor(true);
-        employee1.setSpecialty("head surgeon");
-        employee1.setSalary(500000);
+        employee2.setDoctor(true);
+        employee2.setSpecialty("head surgeon");
+        employee2.setSalary(500000);
 
         Employee employee3=new Employee();
         Credentials cred3=new Credentials();
