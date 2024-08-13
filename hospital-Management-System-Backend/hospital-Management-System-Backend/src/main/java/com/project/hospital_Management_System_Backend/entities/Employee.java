@@ -48,19 +48,19 @@ public class Employee {
     @EqualsAndHashCode.Exclude
     private Set<Company> companies=new HashSet<>();
 
-    @ManyToMany(mappedBy = "employees")
+    @ManyToMany(mappedBy = "employees",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Patient> patients=new HashSet<>();
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Appointments> appointments=new HashSet<>();
 
-    @OneToMany(mappedBy = "prescriber")
+    @OneToMany(mappedBy = "prescriber",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Prescriptions> prescriptions=new HashSet<>();
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Procedures> procedures=new HashSet<>();
 }

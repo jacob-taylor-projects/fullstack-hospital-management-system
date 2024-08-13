@@ -20,27 +20,27 @@ public class Company {
 
     private String description;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Announcements> announcements=new HashSet<>();
 
-    @ManyToMany(mappedBy = "companies")
+    @ManyToMany(mappedBy = "companies",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Employee> employees=new HashSet<>();
 
-    @ManyToMany(mappedBy = "companies")
+    @ManyToMany(mappedBy = "companies",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Patient> patients=new HashSet<>();
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Appointments> appointments=new HashSet<>();
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Prescriptions> prescriptions=new HashSet<>();
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Procedures> procedures=new HashSet<>();
 }

@@ -44,15 +44,15 @@ private Long id;
     @EqualsAndHashCode.Exclude
     private Set<Employee> employees=new HashSet<>();
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Appointments> appointments=new HashSet<>();
 
-    @OneToMany(mappedBy = "prescribed")
+    @OneToMany(mappedBy = "prescribed",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Prescriptions> prescriptions=new HashSet<>();
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     private Set<Procedures> procedures=new HashSet<>();
 }
