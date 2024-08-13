@@ -1,9 +1,6 @@
 package com.project.hospital_Management_System_Backend.services;
 
-import com.project.hospital_Management_System_Backend.entities.Announcements;
-import com.project.hospital_Management_System_Backend.entities.Company;
-import com.project.hospital_Management_System_Backend.entities.Employee;
-import com.project.hospital_Management_System_Backend.entities.Patient;
+import com.project.hospital_Management_System_Backend.entities.*;
 
 public interface ValidateService {
     Employee findEmployee(String username);
@@ -15,4 +12,8 @@ public interface ValidateService {
     Employee findEmployee(Long id);
 
     Announcements findAnnouncement(Long id);
+
+    Patient findPatient(Long id);
+
+    Prescriptions findPrescription(Long id);
 }

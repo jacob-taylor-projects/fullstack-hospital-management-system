@@ -1,14 +1,8 @@
 package com.project.hospital_Management_System_Backend.services.impl;
 
-import com.project.hospital_Management_System_Backend.entities.Announcements;
-import com.project.hospital_Management_System_Backend.entities.Company;
-import com.project.hospital_Management_System_Backend.entities.Employee;
-import com.project.hospital_Management_System_Backend.entities.Patient;
+import com.project.hospital_Management_System_Backend.entities.*;
 import com.project.hospital_Management_System_Backend.exceptions.NotFoundException;
-import com.project.hospital_Management_System_Backend.repos.AnnouncementsRepo;
-import com.project.hospital_Management_System_Backend.repos.CompanyRepo;
-import com.project.hospital_Management_System_Backend.repos.EmployeeRepo;
-import com.project.hospital_Management_System_Backend.repos.PatientRepo;
+import com.project.hospital_Management_System_Backend.repos.*;
 import com.project.hospital_Management_System_Backend.services.ValidateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +16,7 @@ public class ValidateServiceImpl implements ValidateService {
     private final PatientRepo patientRepo;
     private final CompanyRepo companyRepo;
     private final AnnouncementsRepo announcementsRepo;
+    private final PrescriptionsRepo prescriptionsRepo;
     @Override
     public Employee findEmployee(String username) {
         Optional<Employee> employee=employeeRepo.findByCredentialsUsername(username);
@@ -65,5 +60,23 @@ public class ValidateServiceImpl implements ValidateService {
             throw new NotFoundException("There doesnt appear to be an announcement with that id");
         }
         return announcements.get();
+    }
+
+    @Override
+    public Patient findPatient(Long id) {
+        Optional<Patient> patient=patientRepo.findById(id);
+        if (patient.isEmpty()){
+            throw new NotFoundException("There doesnt appear to be a patient with that id");
+        }
+        return patient.get();
+    }
+
+    @Override
+    public Prescriptions findPrescription(Long id) {
+        Optional<Prescriptions> prescriptions=prescriptionsRepo.findById(id);
+        if (prescriptions.isEmpty()){
+            throw new NotFoundException("There doesnt appear to be a prescription with that id");
+        }
+        return prescriptions.get();
     }
 }

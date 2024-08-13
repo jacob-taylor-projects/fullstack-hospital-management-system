@@ -1,9 +1,7 @@
 package com.project.hospital_Management_System_Backend.controllers;
 
 import com.project.hospital_Management_System_Backend.dtos.*;
-import com.project.hospital_Management_System_Backend.services.AnnouncementService;
-import com.project.hospital_Management_System_Backend.services.CompanyService;
-import com.project.hospital_Management_System_Backend.services.EmployeeService;
+import com.project.hospital_Management_System_Backend.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +17,8 @@ public class CompanyController {
     private final CompanyService companyService;
     private final AnnouncementService announcementService;
     private final EmployeeService employeeService;
+    private final PatientService patientService;
+    private final PrescriptionsService prescriptionsService;
 
     //Companies
     @GetMapping("/all-employees")
@@ -72,5 +72,47 @@ public class CompanyController {
     @DeleteMapping("/{id}/employee/{employeeId}")
     public void deleteEmployee(@PathVariable Long id, @PathVariable Long employeeId){
         employeeService.deleteEmployee(id,employeeId);
+    }
+
+    //Patients
+    @PostMapping("/{id}/patient")
+    @ResponseStatus(HttpStatus.CREATED)
+    public FullPatientDto createPatient(@PathVariable Long id, @RequestBody PatientRequestDto patientRequestDto) {
+        return patientService.createPatient(id,patientRequestDto);
+    }
+    @GetMapping("/{id}/patients")
+    public Set<FullPatientDto> getPatients(@PathVariable Long id){
+        return patientService.getPatients(id);
+    }
+
+    @PutMapping("/{id}/patient/{patientId}")
+    public BasicPatientDto updatePatient(@PathVariable Long id, @PathVariable Long patientId, @RequestBody PatientRequestDto patientRequestDto) {
+        return patientService.updatePatient(id,patientId,patientRequestDto);
+    }
+    @DeleteMapping("/{id}/patient/{patientId}")
+    public void deletePatient(@PathVariable Long id, @PathVariable Long patientId){
+        patientService.deletePatient(id,patientId);
+    }
+
+    //Prescriptions
+    @PostMapping("/{id}/prescription")
+    @ResponseStatus(HttpStatus.CREATED)
+    public PrescriptionsDto createPrescription(@PathVariable Long id, @RequestBody PrescriptionsDto prescriptionsDto) {
+        return prescriptionsService.createPrescription(id,prescriptionsDto);
+    }
+
+    @GetMapping("/{id}/prescriptions")
+    public List<PrescriptionsDto> getPrescriptions(@PathVariable Long id) {
+        return prescriptionsService.getPrescriptions(id);
+    }
+
+    @PutMapping("/{id}/prescription/{prescriptionId}")
+    public PrescriptionsDto updatePrescription(@PathVariable Long id,@PathVariable Long prescriptionId,@RequestBody PrescriptionsDto prescriptionsDto){
+        return prescriptionsService.updatePrescription(id,prescriptionId,prescriptionsDto);
+    }
+
+    @DeleteMapping("/{id}/prescription/{prescriptionId}")
+    public void deletePrescription(@PathVariable Long id,@PathVariable Long prescriptionId){
+        prescriptionsService.deletePrescription(id,prescriptionId);
     }
 }
