@@ -19,6 +19,7 @@ public class CompanyController {
     private final EmployeeService employeeService;
     private final PatientService patientService;
     private final PrescriptionsService prescriptionsService;
+    private final ProceduresService proceduresService;
 
     //Companies
     @GetMapping("/all-employees")
@@ -114,5 +115,27 @@ public class CompanyController {
     @DeleteMapping("/{id}/prescription/{prescriptionId}")
     public void deletePrescription(@PathVariable Long id,@PathVariable Long prescriptionId){
         prescriptionsService.deletePrescription(id,prescriptionId);
+    }
+
+    //Procedures
+    @PostMapping("/{id}/procedure")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProceduresDto createProcedure(@PathVariable Long id, @RequestBody ProceduresDto proceduresDto) {
+        return proceduresService.createProcedure(id,proceduresDto);
+    }
+
+    @GetMapping("/{id}/procedures")
+    public List<ProceduresDto> getProcedures(@PathVariable Long id) {
+        return proceduresService.getProcedures(id);
+    }
+
+    @PutMapping("/{id}/procedure/{procedureId}")
+    public ProceduresDto updateProcedure(@PathVariable Long id,@PathVariable Long procedureId,@RequestBody ProceduresDto proceduresDto){
+        return proceduresService.updateProcedure(id,procedureId,proceduresDto);
+    }
+
+    @DeleteMapping("/{id}/procedure/{procedureId}")
+    public void deleteProcedure(@PathVariable Long id,@PathVariable Long procedureId){
+        proceduresService.deleteProcedure(id,procedureId);
     }
 }

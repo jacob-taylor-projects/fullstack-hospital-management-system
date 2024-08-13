@@ -17,6 +17,7 @@ public class ValidateServiceImpl implements ValidateService {
     private final CompanyRepo companyRepo;
     private final AnnouncementsRepo announcementsRepo;
     private final PrescriptionsRepo prescriptionsRepo;
+    private final ProceduresRepo proceduresRepo;
     @Override
     public Employee findEmployee(String username) {
         Optional<Employee> employee=employeeRepo.findByCredentialsUsername(username);
@@ -78,5 +79,14 @@ public class ValidateServiceImpl implements ValidateService {
             throw new NotFoundException("There doesnt appear to be a prescription with that id");
         }
         return prescriptions.get();
+    }
+
+    @Override
+    public Procedures findProcedure(Long id) {
+        Optional<Procedures> procedures=proceduresRepo.findById(id);
+        if (procedures.isEmpty()){
+            throw new NotFoundException("There doesnt appear to be a procedure with that id");
+        }
+        return procedures.get();
     }
 }
