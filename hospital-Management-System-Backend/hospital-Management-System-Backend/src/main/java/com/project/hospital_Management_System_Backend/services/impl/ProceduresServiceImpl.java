@@ -33,7 +33,7 @@ public class ProceduresServiceImpl implements ProceduresService {
     @Override
     public List<ProceduresDto> getProcedures(Long id) {
         Company company = validateService.findCompany(id);
-        List<Procedures> sortedList = new ArrayList<>(company.getProcedures());
+        List<Procedures> sortedList = new ArrayList<>(proceduresRepo.findAll());
         return proceduresMapper.entitiesToDtos(sortedList);
     }
 

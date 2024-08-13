@@ -20,6 +20,7 @@ public class CompanyController {
     private final PatientService patientService;
     private final PrescriptionsService prescriptionsService;
     private final ProceduresService proceduresService;
+    private final AppointmentService appointmentService;
 
     //Companies
     @GetMapping("/all-employees")
@@ -137,5 +138,27 @@ public class CompanyController {
     @DeleteMapping("/{id}/procedure/{procedureId}")
     public void deleteProcedure(@PathVariable Long id,@PathVariable Long procedureId){
         proceduresService.deleteProcedure(id,procedureId);
+    }
+
+    //Appointments
+    @PostMapping("/{id}/appointment")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AppointmentsDto createAppointment(@PathVariable Long id, @RequestBody AppointmentsDto appointmentsDto) {
+        return appointmentService.createAppointment(id,appointmentsDto);
+    }
+
+    @GetMapping("/{id}/appointments")
+    public List<AppointmentsDto> getAppointments(@PathVariable Long id){
+        return appointmentService.getAppointments(id);
+    }
+
+    @PutMapping("/{id}/appointment/{appointmentId}")
+    public AppointmentsDto updateAppointment(@PathVariable Long id,@PathVariable Long appointmentId,@RequestBody AppointmentsDto appointmentsDto){
+        return appointmentService.updateAppointment(id,appointmentId,appointmentsDto);
+    }
+
+    @DeleteMapping("/{id}/appointment/{appointmentId}")
+    public void deleteAppointment(@PathVariable Long id,@PathVariable Long appointmentId){
+        appointmentService.deleteAppointment(id,appointmentId);
     }
 }

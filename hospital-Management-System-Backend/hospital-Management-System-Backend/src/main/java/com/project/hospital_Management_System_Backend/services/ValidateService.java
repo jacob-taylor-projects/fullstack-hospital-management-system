@@ -18,4 +18,6 @@ public interface ValidateService {
     Prescriptions findPrescription(Long id);
 
     Procedures findProcedure(Long id);
+
+    Appointments findAppointment(Long id);
 }

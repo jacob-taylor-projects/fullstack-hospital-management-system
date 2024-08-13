@@ -34,7 +34,7 @@ public class PrescriptionsServiceImpl implements PrescriptionsService {
     @Override
     public List<PrescriptionsDto> getPrescriptions(Long id) {
         Company company = validateService.findCompany(id);
-        List<Prescriptions> sortedList = new ArrayList<>(company.getPrescriptions());
+        List<Prescriptions> sortedList = new ArrayList<>(prescriptionsRepo.findAll());
         return prescriptionsMapper.entitiesToDtos(sortedList);
     }
 

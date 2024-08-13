@@ -18,6 +18,7 @@ public class ValidateServiceImpl implements ValidateService {
     private final AnnouncementsRepo announcementsRepo;
     private final PrescriptionsRepo prescriptionsRepo;
     private final ProceduresRepo proceduresRepo;
+    private final AppointmentsRepo appointmentsRepo;
     @Override
     public Employee findEmployee(String username) {
         Optional<Employee> employee=employeeRepo.findByCredentialsUsername(username);
@@ -88,5 +89,14 @@ public class ValidateServiceImpl implements ValidateService {
             throw new NotFoundException("There doesnt appear to be a procedure with that id");
         }
         return procedures.get();
+    }
+
+    @Override
+    public Appointments findAppointment(Long id) {
+        Optional<Appointments> appointment=appointmentsRepo.findById(id);
+        if (appointment.isEmpty()){
+            throw new NotFoundException("There doesnt appear to be an appointment with that id");
+        }
+        return appointment.get();
     }
 }
