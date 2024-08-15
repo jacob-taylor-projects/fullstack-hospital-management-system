@@ -1,24 +1,19 @@
 package com.project.hospital_Management_System_Backend.services.impl;
 
-import com.project.hospital_Management_System_Backend.dtos.BasicEmployeeDto;
-import com.project.hospital_Management_System_Backend.dtos.CredentialsDto;
-import com.project.hospital_Management_System_Backend.dtos.EmployeeRequestDto;
-import com.project.hospital_Management_System_Backend.dtos.FullEmployeeDto;
-import com.project.hospital_Management_System_Backend.entities.Company;
-import com.project.hospital_Management_System_Backend.entities.Credentials;
-import com.project.hospital_Management_System_Backend.entities.Employee;
+import com.project.hospital_Management_System_Backend.dtos.*;
+import com.project.hospital_Management_System_Backend.entities.*;
 import com.project.hospital_Management_System_Backend.exceptions.BadRequestException;
 import com.project.hospital_Management_System_Backend.exceptions.NotAuthorizedException;
-import com.project.hospital_Management_System_Backend.mappers.BasicEmployeeMapper;
-import com.project.hospital_Management_System_Backend.mappers.CredentialsMapper;
-import com.project.hospital_Management_System_Backend.mappers.FullEmployeeMapper;
+import com.project.hospital_Management_System_Backend.mappers.*;
 import com.project.hospital_Management_System_Backend.repos.EmployeeRepo;
 import com.project.hospital_Management_System_Backend.services.EmployeeService;
 import com.project.hospital_Management_System_Backend.services.ValidateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -29,6 +24,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepo employeeRepo;
     private final FullEmployeeMapper fullEmployeeMapper;
     private final BasicEmployeeMapper basicEmployeeMapper;
+    private final BasicPatientMapper basicPatientMapper;
+    private final AppointmentsMapper appointmentsMapper;
+    private final PrescriptionsMapper prescriptionsMapper;
+    private final ProceduresMapper proceduresMapper;
     @Override
     public FullEmployeeDto login(CredentialsDto credentialsDto) {
         if(credentialsDto==null||credentialsDto.getUsername()==null||credentialsDto.getPassword()==null){
@@ -126,6 +125,38 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(Long id, Long employeeId) {
         validateService.findCompany(id);
         employeeRepo.deleteById(employeeId);
+    }
+
+    @Override
+    public Set<BasicPatientDto> getEmployeesPatients(Long id, Long employeeId) {
+        validateService.findCompany(id);
+        Employee employee=validateService.findEmployee(employeeId);
+        Set<Patient> patients=employee.getPatients();
+        return basicPatientMapper.entitiesToBasicPatientDtos(patients);
+    }
+
+    @Override
+    public List<AppointmentsDto> getEmployeesAppointments(Long id, Long employeeId) {
+        validateService.findCompany(id);
+        Employee employee=validateService.findEmployee(employeeId);
+        List<Appointments> appointments=new ArrayList<>(employee.getAppointments());
+        return appointmentsMapper.entitiesToDtos(appointments);
+    }
+
+    @Override
+    public List<PrescriptionsDto> getEmployeesPrescriptions(Long id, Long employeeId) {
+        validateService.findCompany(id);
+        Employee employee=validateService.findEmployee(employeeId);
+        List<Prescriptions> prescriptions=new ArrayList<>(employee.getPrescriptions());
+        return prescriptionsMapper.entitiesToDtos(prescriptions);
+    }
+
+    @Override
+    public List<ProceduresDto> getEmployeesProcedures(Long id, Long employeeId) {
+        validateService.findCompany(id);
+        Employee employee=validateService.findEmployee(employeeId);
+        List<Procedures> procedures=new ArrayList<>(employee.getProcedures());
+        return proceduresMapper.entitiesToDtos(procedures);
     }
 
 }

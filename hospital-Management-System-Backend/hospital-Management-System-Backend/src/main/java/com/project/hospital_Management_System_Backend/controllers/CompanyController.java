@@ -66,6 +66,27 @@ public class CompanyController {
     public Set<FullEmployeeDto> getEmployees(@PathVariable Long id){
         return employeeService.getEmployees(id);
     }
+
+    @GetMapping("/{id}/employee/{employeeId}/patients")
+    public Set<BasicPatientDto> getEmployeesPatients(@PathVariable Long id,@PathVariable Long employeeId){
+        return employeeService.getEmployeesPatients(id,employeeId);
+    }
+
+    @GetMapping("/{id}/employee/{employeeId}/appointments")
+    public List<AppointmentsDto> getEmployeesAppointments(@PathVariable Long id,@PathVariable Long employeeId){
+        return employeeService.getEmployeesAppointments(id,employeeId);
+    }
+
+    @GetMapping("/{id}/employee/{employeeId}/prescriptions")
+    public List<PrescriptionsDto> getEmployeesPrescriptions(@PathVariable Long id,@PathVariable Long employeeId){
+        return employeeService.getEmployeesPrescriptions(id,employeeId);
+    }
+
+    @GetMapping("/{id}/employee/{employeeId}/procedures")
+    public List<ProceduresDto> getEmployeesProcedures(@PathVariable Long id,@PathVariable Long employeeId){
+        return employeeService.getEmployeesProcedures(id,employeeId);
+    }
+
     @PutMapping("/{id}/employee/{employeeId}")
     public BasicEmployeeDto updateEmployee(@PathVariable Long id, @PathVariable Long employeeId, @RequestBody EmployeeRequestDto employeeRequestDto) {
         return employeeService.updateEmployee(id,employeeId,employeeRequestDto);
@@ -85,6 +106,25 @@ public class CompanyController {
     @GetMapping("/{id}/patients")
     public Set<FullPatientDto> getPatients(@PathVariable Long id){
         return patientService.getPatients(id);
+    }
+
+    @GetMapping("/{id}/patient/{patientId}/appointments")
+    public List<AppointmentsDto> getPatientsAppointments(@PathVariable Long id,@PathVariable Long patientId){
+        return patientService.getPatientsAppointments(id,patientId);
+    }
+
+    @GetMapping("/{id}/patient/{patientId}/prescriptions")
+    public List<PrescriptionsDto> getPatientsPrescriptions(@PathVariable Long id,@PathVariable Long patientId){
+        return patientService.getPatientsPrescriptions(id,patientId);
+    }
+
+    @GetMapping("/{id}/patient/{patientId}/procedures")
+    public List<ProceduresDto> getPatientsProcedures(@PathVariable Long id,@PathVariable Long patientId){
+        return patientService.getPatientsProcedures(id,patientId);
+    }
+    @GetMapping("/{id}/patient/{patientId}/doctors")
+    public Set<BasicEmployeeDto> getPatientsDoctors(@PathVariable Long id,@PathVariable Long patientId){
+        return patientService.getPatientsDoctors(id,patientId);
     }
 
     @PutMapping("/{id}/patient/{patientId}")
