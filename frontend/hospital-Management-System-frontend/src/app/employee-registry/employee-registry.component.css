@@ -91,10 +91,11 @@
     cursor: pointer;
     border-radius: 10px;
     border: none;
-    background-color: white;
+    background-color: rgb(19, 133, 139);
     color: white;
     padding: 10px 20px;
     margin: 5px;
+    margin-left: 90px;
   }
 
 
