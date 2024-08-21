@@ -6,7 +6,7 @@ import PrescriptionDTO from "./PrescriptionDTO";
 import ProcedureDTO from "./ProcedureDTO";
 
 export default interface CompanyDTO{
-    id: number,
+    id:number,
     name:string,
     description:string,
     announcements:AnnouncementDTO[],

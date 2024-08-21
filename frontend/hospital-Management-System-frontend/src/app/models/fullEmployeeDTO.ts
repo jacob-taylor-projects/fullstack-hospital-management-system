@@ -6,14 +6,14 @@ import PrescriptionDTO from "./PrescriptionDTO";
 import ProcedureDTO from "./ProcedureDTO";
 import ProfileDTO from "./ProfileDTO";
 
-export default interface fullEmployeeDTO{
-    id:number,
+export default interface FullEmployeeDTO{
+    id: number,
     profile:ProfileDTO,
     age:number,
     gender:string,
     address:string,
     admin:boolean,
-    doctor:boolean,
+    doctor:boolean
     specialty:string,
     salary:number,
     announcements:AnnouncementDTO[],

@@ -1,7 +1,7 @@
 import ProfileDTO from "./ProfileDTO";
 
 export default interface BasicEmployeeDTO{
-    id:number,
+    id: number,
     profile:ProfileDTO,
     age:number,
     gender:string,

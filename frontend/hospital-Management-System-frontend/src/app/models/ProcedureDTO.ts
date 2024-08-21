@@ -2,7 +2,7 @@ import BasicEmployeeDTO from "./BasicEmployeeDTO";
 import BasicPatientDTO from "./BasicPatientDTO";
 
 export default interface ProcedureDTO{
-    id: number,
+    id:number,
     name:string,
     description:string,
     doctor:BasicEmployeeDTO,

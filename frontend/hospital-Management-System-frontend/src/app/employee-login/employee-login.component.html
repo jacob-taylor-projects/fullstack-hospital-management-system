@@ -1,0 +1,15 @@
+<div class="app-name">
+    <h1>Hospital Management System</h1>
+    <h2>Employee Login</h2>
+</div>
+<div class="login">
+    <!-- ICON GOES HERE -->
+    <img class="logo" src="../../assets/app-icon.png" alt="">
+     <label for="username">username</label>
+     <input #username type="text" name="email" (input)="storeUsername(username.value)">
+     <label for="password">password</label>
+     <input #password type="text" name="password"(input)="storePassword(password.value)">
+
+     <button (click)="login()">Login</button>
+     <button (click)="patientLogin()">Go to patient login</button>
+</div>

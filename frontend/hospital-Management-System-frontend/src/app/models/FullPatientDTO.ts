@@ -6,7 +6,7 @@ import ProcedureDTO from "./ProcedureDTO";
 import ProfileDTO from "./ProfileDTO";
 
 export default interface FullPatientDTO{
-    id:number,
+    id: string,
     profile:ProfileDTO,
     age:number,
     gender:string,
@@ -15,6 +15,6 @@ export default interface FullPatientDTO{
     companies:CompanyDTO[],
     employees:BasicEmployeeDTO[],
     appointments:AppointmentDTO[],
-    prescriptions:PrescriptionDTO[]
+    prescriptions:PrescriptionDTO[],
     procedures:ProcedureDTO[]
 }
