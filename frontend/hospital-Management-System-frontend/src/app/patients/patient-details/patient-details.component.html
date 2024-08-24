@@ -1,0 +1,22 @@
+<div class="patient-details-container">
+    <div class="patient-details-box">
+      <h2>Patient Details</h2>
+      <p>First Name: {{ patient?.profile?.firstName }}</p>
+      <p>Last Name: {{ patient?.profile?.lastName }}</p>
+      <p>Email : {{ patient?.profile?.email }}</p>
+      <p>Phone Number : {{patient?.profile?.phoneNumber}}</p>
+      <p>Age : {{patient?.age}}</p>
+      <p>Gender : {{patient?.gender}}</p>
+      <p>Prognosis : {{patient?.prognosis}}</p>
+      <!-- Add more fields as needed -->
+      <div class="button-container">
+        <button class="back-button" (click)="PatientsPage()">Back</button>
+        <button class="add-patient-btn" (click)="toggleUserOverlay()">Update</button>
+        <button class="delete-button" (click)="deletePatient()">Delete</button>
+      </div>
+    </div>
+  </div>
+<div *ngIf="showUserOverlay">
+    <app-update-patient-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-update-patient-form>
+  </div>
+ 

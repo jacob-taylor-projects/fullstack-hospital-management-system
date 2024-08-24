@@ -1,0 +1,17 @@
+<div class="row">
+    <h2>Patient List</h2>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4" *ngFor="let patient of patients">
+      <app-patient-card [patient]="patient" (click)="patientDetails(patient.id)"></app-patient-card>
+    </div>
+  </div>
+  <div class="btn-container-div">
+    <button class="add-patient-btn" (click)="toggleUserOverlay()">
+        Create New Patient
+      </button>
+</div>
+<div *ngIf="showUserOverlay">
+   <app-add-patient-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-add-patient-form>
+  </div>

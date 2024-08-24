@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import FullEmployeeDTO from '../app/models/FullEmployeeDTO';
+import FullPatientDTO from '../app/models/FullPatientDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,19 @@ export class GeneralService {
 
   updateEmployee(id: number, updatedEmployee: any): Observable<any> {
     return this.http.put(`http://localhost:8080/company/${this.companyId}/employee/${id}`, updatedEmployee);
+  }
+
+  private patientUrl = `http://localhost:8080/company/${this.companyId}/patient`;
+
+
+  getPatientDetails(id: number):Observable<FullPatientDTO> {
+    return this.http.get<FullPatientDTO>(`${this.patientUrl}/${id}`);
+  }
+  deletePatient(id: number) {
+    return this.http.delete(`http://localhost:8080/company/${this.companyId}/patient/${id}`);
+  }
+
+  updatePatient(id: number, updatedPatient: any): Observable<any> {
+    return this.http.put(`http://localhost:8080/company/${this.companyId}/patient/${id}`, updatedPatient);
   }
 }

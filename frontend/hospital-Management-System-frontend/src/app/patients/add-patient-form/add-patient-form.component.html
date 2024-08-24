@@ -1,0 +1,143 @@
+<div class="add-user-overlay" *ngIf="modalVisible">
+    <div class="add-user-container">
+      <div class="exit-button" (click)="handleOverlayExit()">
+        <img
+          class="exit-icon"
+          src="../../../assets/close.svg"
+          alt="exit"
+          width="30"
+        />
+      </div>
+      <h3>Create A New Patient</h3>
+      <form
+        class="add-user-form"
+        #addPatientForm="ngForm"
+        (ngSubmit)="addPatient(addPatientForm.form.value)"
+      >
+        <div class="name-container">
+          <input
+            type="text"
+            name="firstName"
+            [(ngModel)]="firstName"
+            ngModel
+            #firstNameField="ngModel"
+            class="form-control"
+            placeholder="first name*"
+          />
+          <input
+            type="text"
+            name="lastName"
+            [(ngModel)]="lastName"
+            ngModel
+            #lastNameField="ngModel"
+            class="form-control"
+            placeholder="last name*"
+          />
+        </div>
+        <br />
+        <div class="email-phone-container">
+          <input
+            class="email"
+            type="text"
+            name="email"
+            [(ngModel)]="email"
+            ngModel
+            #emailField="ngModel"
+            class="form-control"
+            placeholder="email*"
+          />
+          <input
+            class="phone-number"
+            type="text"
+            name="phoneNumber"
+            ngModel
+            #phoneField="ngModel"
+            class="form-control"
+            placeholder="phone"
+          />
+        </div>
+        <br />
+        <div class="pass-container">
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            ngModel
+            #passField="ngModel"
+            class="login-field"
+            placeholder="password*"
+          />
+          <input
+            type="password"
+            name="confirmedPassword"
+            [(ngModel)]="confirmPassword"
+            ngModel
+            #confirmedPassField="ngModel"
+            class="login-field"
+            placeholder="confirm password*"
+          />
+          <input
+            class="age"
+            type="text"
+            name="age"
+            ngModel
+            #phoneField="ngModel"
+            class="form-control"
+            placeholder="age"
+          />
+          <input
+            class="gender"
+            type="text"
+            name="gender"
+            ngModel
+            #phoneField="ngModel"
+            class="form-control"
+            placeholder="gender"
+          />
+          <input
+            class="address"
+            type="text"
+            name="address"
+            ngModel
+            #phoneField="ngModel"
+            class="form-control"
+            placeholder="address"
+          />
+        </div>
+        <br />
+      <input
+        class="prognosis"
+        type="text"
+        name="prognosis"
+        ngModel
+        #phoneField="ngModel"
+        class="form-control"
+        placeholder="prognosis"
+      />
+          
+        <br />
+        <button
+          class="submit-button"
+          value="Submit"
+          [disabled]="
+            firstName === '' ||
+            firstName.length <= 1 ||
+            lastName === '' ||
+            email === '' ||
+            !email.includes('@') ||
+            password === '' ||
+            confirmPassword === '' ||
+            password != confirmPassword||
+            gender==='male'||gender==='female'
+          "
+        >
+          Submit
+        </button>
+      </form>
+      <p *ngIf="firstName.length === 1">invalid name</p>
+      <p *ngIf="!email.includes('@') && email !== ''">invalid email</p>
+      <p *ngIf="password != confirmPassword">passwords do not match</p>
+      <p>{{ result }}</p>
+    </div>
+  </div>
+

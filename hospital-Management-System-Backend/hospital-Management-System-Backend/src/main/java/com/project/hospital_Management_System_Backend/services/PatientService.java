@@ -23,4 +23,6 @@ public interface PatientService {
     List<ProceduresDto> getPatientsProcedures(Long id, Long patientId);
 
     Set<BasicEmployeeDto> getPatientsDoctors(Long id, Long patientId);
+
+    FullPatientDto getPatient(Long id, Long patientId);
 }

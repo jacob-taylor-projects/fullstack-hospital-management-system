@@ -157,4 +157,11 @@ public class PatientServiceImpl implements PatientService {
         return basicEmployeeMapper.entitiesToBasicEmployeeDtos(employees);
     }
 
+    @Override
+    public FullPatientDto getPatient(Long id, Long patientId) {
+        validateService.findCompany(id);
+        Patient patient=validateService.findPatient(patientId);
+        return fullPatientMapper.entityToFullPatientDto(patient);
+    }
+
 }

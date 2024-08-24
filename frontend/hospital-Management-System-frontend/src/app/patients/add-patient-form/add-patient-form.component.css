@@ -1,0 +1,144 @@
+.add-user-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5); /* Update background color */
+    z-index: 1000;
+    cursor: default;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .add-user-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 600px; /* Update width */
+    margin: 20px; /* Update margin */
+    padding: 40px; /* Update padding */
+    z-index: 1000000141;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey; /* Update background color */
+    border-radius: 10px;
+    cursor: default;
+  }
+  
+  .add-user-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+  
+  .name-container * {
+    margin: 0px 5px;
+  }
+  
+  .pass-container * {
+    margin: 0px 5px;
+  }
+  
+  .checkbox-container * {
+    margin: 0px 5px;
+  }
+  
+  .email-phone-container * {
+    margin: 0px 5px;
+  }
+  
+  .exit-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+  }
+  
+  .exit-icon {
+    width: 30px;
+  }
+  
+  input[type="text"] {
+    background-color: grey; /* Update background color */
+    font-weight: 400; /* Update font weight */
+    color: black; /* Update text color */
+    border: none;
+    border-bottom: 1px solid #ccc; /* Update border style */
+    padding: 10px; /* Update padding */
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-bottom: 1px solid #666; /* Update border color on focus */
+  }
+  
+  input[type="password"] {
+    background-color: grey; /* Update background color */
+    font-weight: 400; /* Update font weight */
+    color: black; /* Update text color */
+    border: none;
+    border-bottom: 1px solid #ccc; /* Update border style */
+    padding: 10px; /* Update padding */
+  }
+  
+  input[type="password"]:focus {
+    outline: none;
+    border-bottom: 1px solid #666; /* Update border color on focus */
+  }
+  
+  button {
+    background-color: #337ab7; /* Update background color */
+    padding: 10px 20px; /* Update padding */
+    border-radius: 5px; /* Update border radius */
+    border: none;
+    color: #fff; /* Update text color */
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:disabled {
+    background-color: #ccc; /* Update background color */
+    color: black; /* Update text color */
+    cursor: default;
+  }
+  
+  button:disabled:hover {
+    opacity: 1;
+  }
+  .pass-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .pass-container input[type="password"] {
+    width: 45%; /* adjust the width to your liking */
+    margin-right: 10px; /* add some margin to the right */
+  }
+  
+  .pass-container input[type="password"]:nth-child(2) {
+    margin-right: 0; /* remove margin for the second password input */
+  }
+  
+  .age, .gender, .address {
+    margin-left: 20px; /* add some margin to the left */
+  }
+  ::placeholder {
+    color: black; /* change the color to your liking */
+  }
+  
+  .age, .gender, .address input[type="text"] {
+    width: 50%; /* adjust the width to your liking */
+  }

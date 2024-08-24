@@ -132,6 +132,11 @@ public class CompanyController {
         return patientService.getPatientsDoctors(id,patientId);
     }
 
+    @GetMapping("/{id}/patient/{patientId}")
+    public FullPatientDto getPatient(@PathVariable Long id,@PathVariable Long patientId){
+        return patientService.getPatient(id,patientId);
+    }
+
     @PutMapping("/{id}/patient/{patientId}")
     public BasicPatientDto updatePatient(@PathVariable Long id, @PathVariable Long patientId, @RequestBody PatientRequestDto patientRequestDto) {
         return patientService.updatePatient(id,patientId,patientRequestDto);
