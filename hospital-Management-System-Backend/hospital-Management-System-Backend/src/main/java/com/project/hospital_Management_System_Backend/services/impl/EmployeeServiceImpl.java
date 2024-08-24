@@ -159,4 +159,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return proceduresMapper.entitiesToDtos(procedures);
     }
 
+    @Override
+    public FullEmployeeDto getEmployee(Long id, Long employeeId) {
+        validateService.findCompany(id);
+        Employee employee=validateService.findEmployee(employeeId);
+        return fullEmployeeMapper.entityToFullEmployeeDto(employee);
+    }
+
 }

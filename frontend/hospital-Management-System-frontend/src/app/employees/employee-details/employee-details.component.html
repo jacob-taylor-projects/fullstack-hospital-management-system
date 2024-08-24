@@ -1,0 +1,28 @@
+
+  
+  <div class="employee-details-container">
+    <div class="employee-details-box">
+      <h2>Employee Details</h2>
+      <p>First Name: {{ employee?.profile?.firstName }}</p>
+      <p>Last Name: {{ employee?.profile?.lastName }}</p>
+      <p>Email : {{ employee?.profile?.email }}</p>
+      <p>Phone Number : {{employee?.profile?.phoneNumber}}</p>
+      <p>Age : {{employee?.age}}</p>
+      <p>Gender : {{employee?.gender}}</p>
+      <p>Address : {{employee?.address}}</p>
+      <p>Admin : {{ employee?.admin ? 'Yes' : 'No' }}</p>
+      <p>Doctor : {{employee?.doctor? 'Yes' : 'No'}}</p>
+      <p>Specialty : {{employee?.specialty}}</p>
+      <p>Salary : {{employee?.salary}}</p>
+      <!-- Add more fields as needed -->
+      <div class="button-container">
+        <button class="back-button" (click)="EmployeesPage()">Back</button>
+        <button class="add-employee-btn" (click)="toggleUserOverlay()">Update</button>
+        <button class="delete-button" (click)="deleteEmployee()">Delete</button>
+      </div>
+    </div>
+  </div>
+<div *ngIf="showUserOverlay">
+    <app-update-employee-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-update-employee-form>
+  </div>
+ 

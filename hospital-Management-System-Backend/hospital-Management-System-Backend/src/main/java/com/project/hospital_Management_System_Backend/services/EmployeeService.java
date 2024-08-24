@@ -23,4 +23,6 @@ public interface EmployeeService {
     List<PrescriptionsDto> getEmployeesPrescriptions(Long id, Long employeeId);
 
     List<ProceduresDto> getEmployeesProcedures(Long id, Long employeeId);
+
+    FullEmployeeDto getEmployee(Long id, Long employeeId);
 }

@@ -87,6 +87,11 @@ public class CompanyController {
         return employeeService.getEmployeesProcedures(id,employeeId);
     }
 
+    @GetMapping("/{id}/employee/{employeeId}")
+    public FullEmployeeDto getEmployee(@PathVariable Long id,@PathVariable Long employeeId){
+        return employeeService.getEmployee(id,employeeId);
+    }
+
     @PutMapping("/{id}/employee/{employeeId}")
     public BasicEmployeeDto updateEmployee(@PathVariable Long id, @PathVariable Long employeeId, @RequestBody EmployeeRequestDto employeeRequestDto) {
         return employeeService.updateEmployee(id,employeeId,employeeRequestDto);

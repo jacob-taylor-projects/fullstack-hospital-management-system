@@ -1,0 +1,169 @@
+
+<div class="add-user-overlay" *ngIf="modalVisible">
+    <div class="add-user-container">
+      <div class="exit-button" (click)="handleOverlayExit()">
+        <img
+          class="exit-icon"
+          src="../../../assets/close.svg"
+          alt="exit"
+          width="30"
+        />
+      </div>
+      <h3>Update Employee</h3>
+      <form
+        class="add-user-form"
+        #addEmployeeForm="ngForm"
+        (ngSubmit)="addEmployee(addEmployeeForm.form.value)"
+      >
+        <div class="name-container">
+          <input
+            type="text"
+            name="firstName"
+            [(ngModel)]="employee.profile.firstName"
+            ngModel
+            #firstNameField="ngModel"
+            class="form-control"
+            placeholder="first name*"
+          />
+          <input
+            type="text"
+            name="lastName"
+            [(ngModel)]="employee.profile.lastName"
+            ngModel
+            #lastNameField="ngModel"
+            class="form-control"
+            placeholder="last name*"
+          />
+        </div>
+        <br />
+        <div class="email-phone-container">
+          <input
+            class="email"
+            type="text"
+            name="email"
+            [(ngModel)]="employee.profile.email"
+            ngModel
+            #emailField="ngModel"
+            class="form-control"
+            placeholder="email*"
+          />
+          <input
+            class="phone-number"
+            type="text"
+            name="phoneNumber"
+            [(ngModel)]="employee.profile.phoneNumber"
+            ngModel
+            #phoneField="ngModel"
+            class="form-control"
+            placeholder="phone"
+          />
+        </div>
+        <br />
+        <div class="pass-container">
+            <input
+              type="password"
+              name="password"
+              ngModel
+              #passField="ngModel"
+              class="login-field"
+              placeholder="password*"
+            />
+            <input
+              type="password"
+              name="confirmedPassword"
+              ngModel
+              #confirmedPassField="ngModel"
+              class="login-field"
+              placeholder="confirm password*"
+            />
+            <input
+              class="age"
+              type="text"
+              name="age"
+              [(ngModel)]="employee.age"
+              ngModel
+              #ageField="ngModel"
+              class="form-control"
+              placeholder="age"
+            />
+            <input
+              class="gender"
+              type="text"
+              name="gender"
+              [(ngModel)]="employee.gender"
+              ngModel
+              #genderField="ngModel"
+              class="form-control"
+              placeholder="gender"
+            />
+            <input
+              class="address"
+              type="text"
+              name="address"
+              [(ngModel)]="employee.address"
+              ngModel
+              #addressField="ngModel"
+              class="form-control"
+              placeholder="address"
+            />
+          </div>
+          <br />
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              name="admin"
+              id="isAdminCheckbox"
+              [(ngModel)]="employee.admin"
+              ngModel
+              #isAdminField="ngModel"
+              class="admin-checkbox"
+            />
+            <label for="isAdminCheckbox">Admin?</label>
+          </div>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              name="doctor"
+              id="isDoctorCheckbox"
+              [(ngModel)]="employee.doctor"
+              ngModel
+              #isDoctorField="ngModel"
+              class="doctor-checkbox"
+            />
+            <label for="isDoctorCheckbox">Doctor?</label>
+          </div>
+          <input
+            class="specialty"
+            type="text"
+            name="specialty"
+            [(ngModel)]="employee.specialty"
+            ngModel
+            #specialtyField="ngModel"
+            class="form-control"
+            placeholder="specialty"
+          />
+          <input
+            class="salary"
+            type="text"
+            name="salary"
+            [(ngModel)]="employee.salary"
+            ngModel
+            #salaryField="ngModel"
+            class="form-control"
+            placeholder="salary"
+          />
+        <br />
+        <button
+          class="submit-button"
+          value="Submit"
+        
+        >
+          Submit
+        </button>
+      </form>
+      <p *ngIf="firstName.length === 1">invalid name</p>
+      <p *ngIf="!email.includes('@') && email !== ''">invalid email</p>
+      <p *ngIf="password != confirmPassword">passwords do not match</p>
+      <p>{{ result }}</p>
+    </div>
+  </div>

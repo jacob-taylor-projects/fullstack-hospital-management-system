@@ -1,0 +1,19 @@
+<div class="row">
+    <h2>Employee List</h2>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4" *ngFor="let employee of employees">
+      <app-employee-card [employee]="employee" (click)="employeeDetails(employee.id)"></app-employee-card>
+    </div>
+  </div>
+  <div class="btn-container-div">
+    <button class="add-employee-btn" (click)="toggleUserOverlay()">
+        Create New Employee
+      </button>
+</div>
+<div *ngIf="showUserOverlay">
+    <app-add-employee-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-add-employee-form>
+  </div>
+
+
