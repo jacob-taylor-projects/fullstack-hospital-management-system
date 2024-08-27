@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import FullEmployeeDTO from '../app/models/FullEmployeeDTO';
 import FullPatientDTO from '../app/models/FullPatientDTO';
+import PrescriptionDTO from '../app/models/PrescriptionDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,14 @@ export class GeneralService {
 
   private patientUrl = `http://localhost:8080/company/${this.companyId}/patient`;
 
+  
+
+  
+
+  getPatients(): Observable<any> {
+    return this.http.get(`http://localhost:8080/company/${this.companyId}/patients`);
+  }
+
 
   getPatientDetails(id: number):Observable<FullPatientDTO> {
     return this.http.get<FullPatientDTO>(`${this.patientUrl}/${id}`);
@@ -72,5 +81,29 @@ export class GeneralService {
 
   updatePatient(id: number, updatedPatient: any): Observable<any> {
     return this.http.put(`http://localhost:8080/company/${this.companyId}/patient/${id}`, updatedPatient);
+  }
+
+  
+  private prescriptionUrl = `http://localhost:8080/company/${this.companyId}/prescription`; // replace with your API URL
+
+  
+
+  createPrescription(prescription: PrescriptionDTO): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.prescriptionUrl, prescription, { headers });
+  }
+
+  getPrescriptions(): Observable<PrescriptionDTO[]> {
+    return this.http.get<PrescriptionDTO[]>(this.apiUrl);
+  }
+
+  updatePrescription(prescription: PrescriptionDTO): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${prescription.id}`, prescription);
+  }
+
+  deletePrescription(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

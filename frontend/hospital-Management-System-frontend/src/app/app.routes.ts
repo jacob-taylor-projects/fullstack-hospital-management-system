@@ -6,6 +6,7 @@ import { EmployeeDetailsComponent } from './employees/employee-details/employee-
 import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
+import { PrescriptionsComponent } from './prescriptions/prescriptions.component';
 
 
 
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path:'employee-details/:id',component:EmployeeDetailsComponent},
     {path:'patients',component:PatientsComponent},
     {path:'patient-details/:id',component:PatientDetailsComponent},
-    {path:'announcements',component:AnnouncementsComponent}
+    {path:'announcements',component:AnnouncementsComponent},
+    {path:'prescriptions',component:PrescriptionsComponent}
 ];
 

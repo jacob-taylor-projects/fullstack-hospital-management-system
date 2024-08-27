@@ -351,49 +351,49 @@ public class Seeder implements CommandLineRunner {
         company1.setProcedures(new HashSet<Procedures>(Arrays.asList(procedures5,procedures6,procedures7,procedures8)));
 
         prescriptions1.setName("Zyphorin");
-        prescriptions1.setDescription("all around healer");
+        prescriptions1.setDescription("25mg 2x a day");
         prescriptions1.setCompany(company1);
         prescriptions1.setPrescriber(employee1);
         prescriptions1.setPrescribed(patient1);
 
         prescriptions2.setName("Nexacure");
-        prescriptions2.setDescription("cancer meds");
+        prescriptions2.setDescription("50mg 1x a day");
         prescriptions2.setCompany(company1);
         prescriptions2.setPrescriber(employee1);
         prescriptions2.setPrescribed(patient1);
 
         prescriptions3.setName("Virolexa");
-        prescriptions3.setDescription("stomache medication");
+        prescriptions3.setDescription("70mg 3x a day");
         prescriptions3.setCompany(company1);
         prescriptions3.setPrescriber(employee2);
         prescriptions3.setPrescribed(patient2);
 
         prescriptions4.setName("Cortivex");
-        prescriptions4.setDescription("all around healer");
+        prescriptions4.setDescription("25 mg 1x a day");
         prescriptions4.setCompany(company1);
         prescriptions4.setPrescriber(employee2);
         prescriptions4.setPrescribed(patient2);
 
         prescriptions5.setName("Thermogen");
-        prescriptions5.setDescription("Stomache medication");
+        prescriptions5.setDescription("50mg 1x a day");
         prescriptions5.setCompany(company2);
         prescriptions5.setPrescriber(employee3);
         prescriptions5.setPrescribed(patient3);
 
         prescriptions6.setName("Luminara");
-        prescriptions6.setDescription("all around healer");
+        prescriptions6.setDescription("100mg 2x a day");
         prescriptions6.setCompany(company2);
         prescriptions6.setPrescriber(employee3);
         prescriptions6.setPrescribed(patient3);
 
         prescriptions7.setName("Aquilix");
-        prescriptions7.setDescription("all around healer");
+        prescriptions7.setDescription("200mg 1x a day");
         prescriptions7.setCompany(company2);
         prescriptions7.setPrescriber(employee4);
         prescriptions7.setPrescribed(patient4);
 
         prescriptions8.setName("Serenitol");
-        prescriptions8.setDescription("heart medication");
+        prescriptions8.setDescription("150mg 3x a day");
         prescriptions8.setCompany(company2);
         prescriptions8.setPrescriber(employee4);
         prescriptions8.setPrescribed(patient4);
