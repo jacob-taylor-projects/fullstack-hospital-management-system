@@ -1,0 +1,70 @@
+<div class="page-container">
+    <div class="announcements-header">
+      <h1 class="page-title">Announcements</h1>
+      <button *ngIf="employee" (click)="newAnnouncementPopup()" class="new-post-button">New</button>
+    </div>
+    <div class="break"></div>
+    <div class="announcements-container">
+      <div *ngFor="let announcement of paginatedAnnouncements" class="announcement-container">
+        <p class="announcement-title">{{announcement.title}}</p>
+        <div class="announcement-header">
+          <p *ngIf="announcement.author" class="author">
+            {{announcement.author.profile.firstName}} {{announcement.author.profile.lastName}}
+          </p>
+          <p class="date">{{announcement.date}}</p>
+        </div>
+        <p class="announcement-text">{{announcement.message}}</p>
+        <button (click)="updateAnnouncement(announcement)" class="update-button">Update</button>
+        <button (click)="deleteAnnouncement(announcement.id)" class="delete-button">Delete</button>
+      </div>
+    </div>
+  
+    <div *ngIf="announcementPopup && employee" class="create-announcement-container">
+      <form *ngIf="announcementForm" [formGroup]="announcementForm" (ngSubmit)="submitAnnouncement()">
+        <div class="popup-close-button" (click)="newAnnouncementPopup()">x</div>
+        <div class="popup-name">{{employee.profile.firstName}}</div>
+        <div class="popup-inner-container">
+          <div>Title</div>
+          <input formControlName="title" class="popup-input" />
+          <div *ngIf="announcementForm.get('title')?.invalid && announcementForm.get('title')?.touched" class="error-message">
+            Title is required.
+          </div>
+          <div>Message</div>
+          <input formControlName="message" class="popup-input" />
+          <div *ngIf="announcementForm.get('message')?.invalid && announcementForm.get('message')?.touched" class="error-message">
+            Message is required.
+          </div>
+        </div>
+        <button class="popup-submit-button" type="submit" [disabled]="announcementForm.invalid">Submit</button>
+      </form>
+    </div>
+  
+    <div *ngIf="updateAnnouncementPopup" class="create-announcement-container">
+      <form *ngIf="announcementForm" [formGroup]="announcementForm" (ngSubmit)="submitUpdateAnnouncement(currentAnnouncement)">
+        <div class="popup-close-button" (click)="updateAnnouncementPopup = false">x</div>
+        <div class="popup-name">{{employee?.profile?.firstName}}</div>
+        <div class="popup-inner-container">
+          <div>Title</div>
+          <input formControlName="title" class="popup-input" />
+          <div *ngIf="announcementForm.get('title')?.invalid && announcementForm.get('title')?.touched" class="error-message">
+            Title is required.
+          </div>
+          <div>Message</div>
+          <input formControlName="message" class="popup-input" />
+          <div *ngIf="announcementForm.get('message')?.invalid && announcementForm.get('message')?.touched" class="error-message">
+            Message is required.
+          </div>
+        </div>
+        <button class="popup-submit-button" type="submit" [disabled]="announcementForm.invalid">Update</button>
+      </form>
+    </div>
+  
+    <!-- Pagination Controls -->
+    <div *ngIf="totalPages > 1" class="pagination-controls">
+      <div class="pagination-buttons">
+        <button (click)="goToPreviousPage()" [disabled]="currentPage === 0">Previous</button>
+        <button (click)="goToNextPage()" [disabled]="currentPage >= totalPages - 1">Next</button>
+      </div>
+      <span>{{currentPage + 1}} of {{totalPages}}</span>
+    </div>
+  </div>

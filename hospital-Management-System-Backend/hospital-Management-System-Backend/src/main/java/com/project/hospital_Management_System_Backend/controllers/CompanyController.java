@@ -44,6 +44,7 @@ public class CompanyController {
     public List<AnnouncementsDto> getAnnouncements(@PathVariable Long id) {
         return announcementService.getAnnouncements(id);
     }
+    
 
     @PutMapping("/{id}/announcement/{announcementId}")
     public AnnouncementsDto updateAnnouncement(@PathVariable Long id, @PathVariable Long announcementId, @RequestBody AnnouncementsDto announcementsDto) {
