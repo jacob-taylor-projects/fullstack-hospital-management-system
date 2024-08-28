@@ -6,6 +6,8 @@
           <p>{{ prescription.description }}</p>
           <p>Prescribed by: {{ prescription.prescriber.profile.firstName }} {{ prescription.prescriber.profile.lastName }}</p>
           <p>For: {{ prescription.prescribed.profile.firstName }} {{ prescription.prescribed.profile.lastName }}</p>
+          <button class="edit-btn" (click)="toggleUpdateOverlay(prescription)">Edit</button>
+          <button class="delete-btn" (click)="deletePrescription(prescription)">Delete</button>
         </div>
       </div>
   </div>
@@ -23,3 +25,11 @@
         <app-add-prescription-form class="add-user-form" (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-add-prescription-form>
     </div>
 </div>
+
+<div class="add-user-overlay" *ngIf="showUpdateOverlay">
+    <!-- Add the update form container -->
+    <div class="add-user-container">
+      <!-- Add the update form component -->
+      <app-update-prescription-form class="add-user-form" [prescription]="selectedPrescription" (updatePrescription)="onUpdatePrescription($event)" (updateUserOverlayVisibility)="onOverlayVisibilityChange()" (onClose)="onCloseUpdateOverlay()"></app-update-prescription-form>
+    </div>
+  </div>

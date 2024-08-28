@@ -1,0 +1,35 @@
+<div class="prescription-form">
+    <div class="header">
+      <h1>Update Prescription</h1>
+      <div class="exit-button" (click)="handleOverlayExit()">
+        <img
+          class="exit-icon"
+          src="../../../assets/close.svg"
+          alt="exit"
+          width="30"
+        />
+      </div>
+    </div>
+    <form #prescriptionForm="ngForm" (ngSubmit)="onUpdate(prescriptionForm.form.value)">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="prescription.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="prescription.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="prescriber">Prescriber:</label>
+        <div class="prescriber-name">{{ employee?.profile?.firstName }} {{ employee?.profile?.lastName }}</div>
+        <input type="hidden" [ngModel]="employee" name="prescriber">
+      </div>
+      <div class="form-group">
+        <label for="prescribed">Prescribed for:</label>
+        <select id="prescribed" [(ngModel)]="prescription.prescribed" name="prescribed" required>
+          <option *ngFor="let patient of patients" [ngValue]="patient">{{ patient.profile.firstName }} {{patient.profile.lastName}}</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!prescriptionForm.form.valid">Update Prescription</button>
+    </form>
+  </div>

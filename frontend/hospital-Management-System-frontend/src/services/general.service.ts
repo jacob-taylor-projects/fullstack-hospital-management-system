@@ -99,8 +99,8 @@ export class GeneralService {
     return this.http.get<PrescriptionDTO[]>(this.apiUrl);
   }
 
-  updatePrescription(prescription: PrescriptionDTO): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${prescription.id}`, prescription);
+  updatePrescription(id:number,prescription: PrescriptionDTO): Observable<any> {
+    return this.http.put(`${this.prescriptionUrl}/${prescription.id}`, prescription);
   }
 
   deletePrescription(id: number): Observable<any> {

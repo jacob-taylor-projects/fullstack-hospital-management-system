@@ -55,6 +55,8 @@ export class AddPrescriptionFormComponent {
   employee: BasicEmployeeDTO | undefined;
   patients: BasicPatientDTO[] = [];
 
+  
+
   constructor(private prescriptionService: GeneralService) { }
 
   ngOnInit(): void {
@@ -117,10 +119,13 @@ export class AddPrescriptionFormComponent {
           },
         };
         this.submitted = false;
+        window.location.reload();
+        this.updateUserOverlayVisibility.emit();
       },
       (error) => {
         console.error(error);
-      }
+      }, 
+      
     );
   }
 
