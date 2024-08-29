@@ -1,0 +1,36 @@
+<div class="procedure-list">
+    <h1>Procedures</h1>
+    <div class="procedure-list">
+        <div class="procedure" *ngFor="let procedure of procedures">
+          <h2>{{ procedure.name }}</h2>
+          <p>{{ procedure.description }}</p>
+          <p>Doctor : {{ procedure.doctor.profile.firstName }} {{ procedure.doctor.profile.lastName }}</p>
+          <p>Patient: {{ procedure.patient.profile.firstName }} {{ procedure.patient.profile.lastName }}</p>
+          <button class="edit-btn" (click)="toggleUpdateOverlay(procedure)">Edit</button>
+          <button class="delete-btn" (click)="deleteProcedure(procedure)">Delete</button>
+        </div>
+      </div>
+  </div>
+  <div class="btn-container-div">
+    <button class="add-employee-btn" (click)="toggleUserOverlay()">
+        Create New Procedure
+    </button>
+</div>
+
+<!-- Add the overlay container -->
+<div class="add-user-overlay" *ngIf="showUserOverlay">
+    <!-- Add the form container -->
+    <div class="add-user-container">
+        <!-- Add the form component -->
+        <app-add-procedure-form class="add-user-form" (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-add-procedure-form>
+    </div>
+</div>
+
+<div class="add-user-overlay" *ngIf="showUpdateOverlay">
+    <!-- Add the update form container -->
+    <div class="add-user-container">
+      <!-- Add the update form component -->
+      <app-update-procedure-form class="add-user-form" [procedure]="selectedProcedure" (updateProcedure)="onUpdateProcedure($event)" (updateUserOverlayVisibility)="onOverlayVisibilityChange()" (onClose)="onCloseUpdateOverlay()"></app-update-procedure-form>
+    </div>
+  </div>
+

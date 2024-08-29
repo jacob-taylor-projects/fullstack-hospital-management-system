@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import FullEmployeeDTO from '../app/models/FullEmployeeDTO';
 import FullPatientDTO from '../app/models/FullPatientDTO';
 import PrescriptionDTO from '../app/models/PrescriptionDTO';
+import ProcedureDTO from '../app/models/ProcedureDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -105,5 +106,23 @@ export class GeneralService {
 
   deletePrescription(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+private procedureUrl = `http://localhost:8080/company/${this.companyId}/procedure`
+  
+  createProcedure(procedure: ProcedureDTO): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.procedureUrl, procedure, { headers });
+  }
+
+  
+
+  updateProcedure(id:number,procedure: ProcedureDTO): Observable<any> {
+    return this.http.put(`${this.procedureUrl}/${procedure.id}`, procedure);
+  }
+
+  deleteProcedure(id: number): Observable<any> {
+    return this.http.delete(`${this.procedureUrl}/${id}`);
   }
 }

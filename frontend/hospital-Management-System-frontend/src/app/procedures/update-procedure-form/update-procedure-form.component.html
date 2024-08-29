@@ -1,0 +1,36 @@
+<div class="procedure-form">
+    <div class="header">
+      <h1>Update Procedure</h1>
+      <div class="exit-button" (click)="handleOverlayExit()">
+        <img
+          class="exit-icon"
+          src="../../../assets/close.svg"
+          alt="exit"
+          width="30"
+        />
+      </div>
+    </div>
+    <form #procedureForm="ngForm" (ngSubmit)="onUpdate(procedureForm.form.value)">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="procedure.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="procedure.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="doctor">Doctor:</label>
+        <div class="doctor-name">{{ employee?.profile?.firstName }} {{ employee?.profile?.lastName }}</div>
+        <input type="hidden" [ngModel]="employee" name="doctor">
+      </div>
+      <div class="form-group">
+        <label for="patient">Patient:</label>
+        <select id="patient" [(ngModel)]="procedure.patient" name="patient" required>
+          <option *ngFor="let patient of patients" [ngValue]="patient">{{ patient.profile.firstName }} {{patient.profile.lastName}}</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!procedureForm.form.valid">Update Procedure</button>
+    </form>
+  </div>
+
