@@ -74,6 +74,7 @@ export class EmployeeLoginComponent {
           'companyName',
           this.employeeData.companies[0].name
         );
+        localStorage.setItem('employeeId',this.employeeData.id);
       },
       error: (e) => {
         console.error(e);

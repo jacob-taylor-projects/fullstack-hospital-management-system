@@ -9,6 +9,9 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { PrescriptionsComponent } from './prescriptions/prescriptions.component';
 import { ProceduresComponent } from './procedures/procedures.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { EmployeesAppointmentsComponent } from './employees-appointments/employees-appointments.component';
+import { EmployeesPrescriptionsComponent } from './employees-prescriptions/employees-prescriptions.component';
+import { EmployeesProceduresComponent } from './employees-procedures/employees-procedures.component';
 
 
 
@@ -22,6 +25,9 @@ export const routes: Routes = [
     {path:'announcements',component:AnnouncementsComponent},
     {path:'prescriptions',component:PrescriptionsComponent},
     {path:'procedures',component:ProceduresComponent},
-    {path:'appointments',component:AppointmentsComponent}
+    {path:'appointments',component:AppointmentsComponent},
+    {path:'employee-appointments',component:EmployeesAppointmentsComponent},
+    {path:'employee-prescriptions',component:EmployeesPrescriptionsComponent},
+    {path:'employee-procedures',component:EmployeesProceduresComponent}
 ];
 
