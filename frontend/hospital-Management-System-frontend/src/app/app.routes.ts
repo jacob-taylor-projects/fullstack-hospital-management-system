@@ -8,6 +8,7 @@ import { PatientDetailsComponent } from './patients/patient-details/patient-deta
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { PrescriptionsComponent } from './prescriptions/prescriptions.component';
 import { ProceduresComponent } from './procedures/procedures.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
     {path:'patient-details/:id',component:PatientDetailsComponent},
     {path:'announcements',component:AnnouncementsComponent},
     {path:'prescriptions',component:PrescriptionsComponent},
-    {path:'procedures',component:ProceduresComponent}
+    {path:'procedures',component:ProceduresComponent},
+    {path:'appointments',component:AppointmentsComponent}
 ];
 

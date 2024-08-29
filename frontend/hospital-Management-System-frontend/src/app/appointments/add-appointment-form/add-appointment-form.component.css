@@ -1,0 +1,111 @@
+.appointment-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 550px;
+    overflow-y: auto; /* add this property to enable vertical scrolling */
+  }
+  
+  .form-group {
+    margin-bottom: 10px; /* reduced from 20px */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #337ab7; /* Update background color */
+    padding: 10px 20px; /* Update padding */
+    border-radius: 5px; /* Update border radius */
+    border: none;
+    color: #fff; /* Update text color */
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+  }
+
+  .add-user-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5); /* Update background color */
+    z-index: 1000;
+    cursor: default;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .add-user-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 600px; /* Update width */
+    margin: 20px; /* Update margin */
+    padding: 40px; /* Update padding */
+    z-index: 1000000141;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey; /* Update background color */
+    border-radius: 10px;
+    cursor: default;
+    
+  }
+  
+  .add-user-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .appointment-form .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-form .header h1 {
+    margin: 0;
+}
+
+.appointment-form .exit-button {
+    margin-left: 10px; /* add some space between the h1 and the exit button */
+    cursor: pointer; /* make the exit button cursor a pointer */
+}
+
+.date-field, .start-time-field, .end-time-field {
+    font-family: Open Sans, Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .date-field input, .start-time-field input, .end-time-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }

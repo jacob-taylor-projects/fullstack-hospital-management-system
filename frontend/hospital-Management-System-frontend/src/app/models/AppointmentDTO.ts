@@ -5,9 +5,9 @@ export default interface AppointmentDTO{
     id:number,
     name:string,
     description:string,
-    date:string,
-    startTime:string,
-    endTime:string,
+    date:Date,
+    startTime:Date,
+    endTime:Date,
     doctor:BasicEmployeeDTO,
     patient:BasicPatientDTO
 }

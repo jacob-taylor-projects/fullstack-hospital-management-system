@@ -6,6 +6,7 @@ import FullEmployeeDTO from '../app/models/FullEmployeeDTO';
 import FullPatientDTO from '../app/models/FullPatientDTO';
 import PrescriptionDTO from '../app/models/PrescriptionDTO';
 import ProcedureDTO from '../app/models/ProcedureDTO';
+import AppointmentDTO from '../app/models/AppointmentDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -124,5 +125,24 @@ private procedureUrl = `http://localhost:8080/company/${this.companyId}/procedur
 
   deleteProcedure(id: number): Observable<any> {
     return this.http.delete(`${this.procedureUrl}/${id}`);
+  }
+
+  private appointmentUrl = `http://localhost:8080/company/${this.companyId}/appointment`
+  
+  createAppointment(appointment: AppointmentDTO): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.appointmentUrl, appointment, { headers });
+  }
+
+  
+
+  updateAppointment(id:number,appointment: AppointmentDTO): Observable<any> {
+    return this.http.put(`${this.appointmentUrl}/${appointment.id}`, appointment);
+  }
+
+  deleteAppointment(id: number): Observable<any> {
+    return this.http.delete(`${this.appointmentUrl}/${id}`);
   }
 }

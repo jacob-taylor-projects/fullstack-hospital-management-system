@@ -1,0 +1,38 @@
+<div class="appointment-list">
+    <h1>Appointments</h1>
+    <div class="appointment-list">
+        <div class="appointment" *ngFor="let appointment of appointments">
+          <h2>{{ appointment.name }}</h2>
+          <p>{{ appointment.description }}</p>
+          <p>Date: {{ appointment.date  }}</p>
+          <p>Start Time: {{ appointment.startTime }} </p>
+          <p>End Time: {{appointment.endTime}}</p>
+          <p>Doctor : {{appointment.doctor.profile.firstName}} {{appointment.doctor.profile.lastName}}</p>
+          <p>Patient : {{appointment.patient.profile.firstName}} {{appointment.patient.profile.lastName}}</p>
+          <button class="edit-btn" (click)="toggleUpdateOverlay(appointment)">Edit</button>
+          <button class="delete-btn" (click)="deleteAppointment(appointment)">Delete</button>
+        </div>
+      </div>
+  </div>
+  <div class="btn-container-div">
+    <button class="add-employee-btn" (click)="toggleUserOverlay()">
+        Create New Appointment
+    </button>
+</div>
+
+<!-- Add the overlay container -->
+<div class="add-user-overlay" *ngIf="showUserOverlay">
+    <!-- Add the form container -->
+    <div class="add-user-container">
+        <!-- Add the form component -->
+        <app-add-appointment-form class="add-user-form" (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-add-appointment-form>
+    </div>
+</div>
+
+<div class="add-user-overlay" *ngIf="showUpdateOverlay">
+    <!-- Add the update form container -->
+    <div class="add-user-container">
+      <!-- Add the update form component -->
+      <app-update-appointment-form class="add-user-form" [appointment]="selectedAppointment" (updateAppointment)="onUpdateAppointment($event)" (updateUserOverlayVisibility)="onOverlayVisibilityChange()" (onClose)="onCloseUpdateOverlay()"></app-update-appointment-form>
+    </div>
+  </div>
