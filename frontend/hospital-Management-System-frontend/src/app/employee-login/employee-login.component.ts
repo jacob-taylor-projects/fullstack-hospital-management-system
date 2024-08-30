@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import EmployeeRequestDTO from '../models/EmployeeRequestDTO';
 import { GeneralService } from '../../services/general.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-employee-login',
@@ -67,7 +68,7 @@ export class EmployeeLoginComponent {
         this.employee.doctor=this.employeeData.doctor;
         this.employee.specialty=this.employeeData.specialty;
         this.employee.salary=this.employeeData.salary;
-        this.router.navigate(["/"]);
+        this.router.navigate(["/announcements"]);
         localStorage.setItem('employee',JSON.stringify(this.employeeData));
         localStorage.setItem('companyId', this.employeeData.companies[0].id);
         localStorage.setItem(

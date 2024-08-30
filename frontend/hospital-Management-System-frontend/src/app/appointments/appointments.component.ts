@@ -5,11 +5,12 @@ import { NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AddAppointmentFormComponent } from "./add-appointment-form/add-appointment-form.component";
 import { UpdateAppointmentFormComponent } from "./update-appointment-form/update-appointment-form.component";
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [NgFor, AddAppointmentFormComponent, UpdateAppointmentFormComponent,NgIf],
+  imports: [NgFor, AddAppointmentFormComponent, UpdateAppointmentFormComponent, NgIf, EmployeeNavmenuComponent],
   templateUrl: './appointments.component.html',
   styleUrl: './appointments.component.css'
 })

@@ -1,0 +1,49 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <img
+        (click)="goHome()"
+        class="logo"
+        src="../../../assets/app-icon.png"
+        alt="company logo"
+      />
+      <img 
+        (click)="toggleMobileMenu()"
+        class="mobile-menu-button"
+        src="../../assets/mobile-menu.svg"
+        alt="mobile menu"
+      />
+    </div>
+    <div id="adtext" *ngIf="employee">
+      {{ employee.admin ? "ADMIN:" : "" }} {{ employee.profile.firstName }} {{ employee.profile.lastName }}
+      
+    </div>
+    <div class="companyName" *ngIf="companyName && employee">{{companyName}}</div>
+    <div class="links">
+      <a class="link" routerLink="/announcements">Home</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/employees">All Employees</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/patients">All Patients</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/prescriptions">All Prescriptions</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/procedures">All Procedures</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/appointments">All Appointments</a>
+      <a  class="link" routerLink="/employee-info">My Info</a>
+      <a  class="link" routerLink="/employee-patients">My Patients</a>
+      <a  class="link" routerLink="/employee-prescriptions">My Prescriptions</a>
+      <a  class="link" routerLink="/employee-procedures">My Procedures</a>
+      <a  class="link" routerLink="/employee-appointments">My Appointments</a>
+      <a (click)="logout()"><h1 class="link">Logout</h1></a>
+    </div>
+    <div *ngIf="toggleMenu" class="mobile-menu">
+      <a class="mobile-link" routerLink="/announcements">Home</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/employees">All Employees</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/patients">All Patients</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/prescriptions">All Prescriptions</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/procedures">All Procedures</a>
+      <a *ngIf="employee && employee.admin" class="link" routerLink="/appointments">All Appointments</a>
+      <a  class="link" routerLink="/employee-info">My Info</a>
+      <a  class="link" routerLink="/employee-patients">My Patients</a>
+      <a  class="link" routerLink="/employee-prescriptions">My Prescriptions</a>
+      <a  class="link" routerLink="/employee-procedures">My Procedures</a>
+      <a  class="link" routerLink="/employee-appointments">My Appointments</a>
+      <a (click)="logout()"><h1 class="mobile-link">Logout</h1></a>
+    </div>
+  </nav>

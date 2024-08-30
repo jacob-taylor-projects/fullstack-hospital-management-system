@@ -4,11 +4,12 @@ import { AddPrescriptionFormComponent } from '../prescriptions/add-prescription-
 import { UpdatePrescriptionFormComponent } from '../prescriptions/update-prescription-form/update-prescription-form.component';
 import PrescriptionDTO from '../models/PrescriptionDTO';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-employees-prescriptions',
   standalone: true,
-  imports: [NgFor,NgIf,AddPrescriptionFormComponent,UpdatePrescriptionFormComponent],
+  imports: [NgFor, NgIf, AddPrescriptionFormComponent, UpdatePrescriptionFormComponent, EmployeeNavmenuComponent],
   templateUrl: './employees-prescriptions.component.html',
   styleUrl: './employees-prescriptions.component.css'
 })

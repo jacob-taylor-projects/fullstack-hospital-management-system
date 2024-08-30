@@ -1,8 +1,8 @@
-
+<app-employee-navmenu></app-employee-navmenu>
   
   <div class="employee-details-container">
     <div class="employee-details-box">
-      <h2>Employee Details</h2>
+      <h2>{{employeeFirstName}} {{employeeLastName}}'s Employee Details</h2>
       <p>First Name: {{ employee.profile.firstName }}</p>
       <p>Last Name: {{ employee.profile.lastName }}</p>
       <p>Email : {{ employee.profile.email }}</p>
@@ -15,14 +15,12 @@
       <p>Specialty : {{employee.specialty}}</p>
       <p>Salary : {{employee.salary}}</p>
       <!-- Add more fields as needed -->
-      <div class="button-container">
-        <button class="back-button" (click)="EmployeesPage()">Back</button>
+      <div>
         <button class="add-employee-btn" (click)="toggleUserOverlay()">Update</button>
-        <button class="delete-button" (click)="deleteEmployee()">Delete</button>
+        
       </div>
     </div>
   </div>
 <div *ngIf="showUserOverlay">
     <app-update-employee-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-update-employee-form>
   </div>
- 

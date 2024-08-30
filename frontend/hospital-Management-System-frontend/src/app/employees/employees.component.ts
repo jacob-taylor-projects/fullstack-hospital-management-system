@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 import { EmployeeCardComponent } from "./employee-card/employee-card.component";
 import { NgFor, NgIf } from '@angular/common';
 import { AddEmployeeFormComponent } from "./add-employee-form/add-employee-form.component";
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [EmployeeCardComponent, NgFor, AddEmployeeFormComponent,NgIf],
+  imports: [EmployeeCardComponent, NgFor, AddEmployeeFormComponent, NgIf, EmployeeNavmenuComponent],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css'
 })

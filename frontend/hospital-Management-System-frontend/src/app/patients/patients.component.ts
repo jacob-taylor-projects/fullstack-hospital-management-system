@@ -7,11 +7,12 @@ import { GeneralService } from '../../services/general.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [PatientCardComponent, AddPatientFormComponent,NgIf,NgFor],
+  imports: [PatientCardComponent, AddPatientFormComponent, NgIf, NgFor, EmployeeNavmenuComponent],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css'
 })

@@ -5,11 +5,12 @@ import FullEmployeeDTO from '../models/FullEmployeeDTO';
 import { GeneralService } from '../../services/general.service';
 import { NgFor, NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-announcements',
   standalone: true,
-  imports: [NgIf,ReactiveFormsModule,NgFor,HttpClientModule],
+  imports: [NgIf, ReactiveFormsModule, NgFor, HttpClientModule, EmployeeNavmenuComponent],
   templateUrl: './announcements.component.html',
   styleUrl: './announcements.component.css'
 })

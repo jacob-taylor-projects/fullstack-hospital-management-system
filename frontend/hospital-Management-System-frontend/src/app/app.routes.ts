@@ -12,6 +12,9 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { EmployeesAppointmentsComponent } from './employees-appointments/employees-appointments.component';
 import { EmployeesPrescriptionsComponent } from './employees-prescriptions/employees-prescriptions.component';
 import { EmployeesProceduresComponent } from './employees-procedures/employees-procedures.component';
+import { EmployeeInfoComponent } from './employee-info/employee-info.component';
+import { EmployeesPatientsComponent } from './employees-patients/employees-patients.component';
+import { EmployeesPatientsDetailsComponent } from './employees-patients/employees-patients-details/employees-patients-details.component';
 
 
 
@@ -28,6 +31,9 @@ export const routes: Routes = [
     {path:'appointments',component:AppointmentsComponent},
     {path:'employee-appointments',component:EmployeesAppointmentsComponent},
     {path:'employee-prescriptions',component:EmployeesPrescriptionsComponent},
-    {path:'employee-procedures',component:EmployeesProceduresComponent}
+    {path:'employee-procedures',component:EmployeesProceduresComponent},
+    {path:'employee-info',component:EmployeeInfoComponent},
+    {path:'employee-patients',component:EmployeesPatientsComponent},
+    {path:'employees-patients-details/:id',component:EmployeesPatientsDetailsComponent},
 ];
 

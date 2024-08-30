@@ -145,4 +145,6 @@ private procedureUrl = `http://localhost:8080/company/${this.companyId}/procedur
   deleteAppointment(id: number): Observable<any> {
     return this.http.delete(`${this.appointmentUrl}/${id}`);
   }
+
+
 }

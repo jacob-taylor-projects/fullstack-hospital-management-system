@@ -4,11 +4,12 @@ import { UpdateProcedureFormComponent } from "./update-procedure-form/update-pro
 import { NgFor, NgIf } from '@angular/common';
 import ProcedureDTO from '../models/ProcedureDTO';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeNavmenuComponent } from "../employee-navmenu/employee-navmenu.component";
 
 @Component({
   selector: 'app-procedures',
   standalone: true,
-  imports: [AddProcedureFormComponent, UpdateProcedureFormComponent,NgFor,NgIf],
+  imports: [AddProcedureFormComponent, UpdateProcedureFormComponent, NgFor, NgIf, EmployeeNavmenuComponent],
   templateUrl: './procedures.component.html',
   styleUrl: './procedures.component.css'
 })
