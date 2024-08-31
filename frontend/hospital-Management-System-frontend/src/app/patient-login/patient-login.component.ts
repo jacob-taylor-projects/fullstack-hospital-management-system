@@ -61,7 +61,14 @@ export class PatientLoginComponent {
         this.patient.gender=this.patientData.gender;
         this.patient.address=this.patientData.address;
         this.patient.prognosis=this.patientData.prognosis;
-        this.router.navigate(["/"]);
+        this.router.navigate(["/patient-info"]);
+        localStorage.setItem('patient',JSON.stringify(this.patientData));
+        localStorage.setItem('companyId', this.patientData.companies[0].id);
+        localStorage.setItem(
+          'companyName',
+          this.patientData.companies[0].name
+        );
+        localStorage.setItem('patientId',this.patientData.id);
       },
       error: (e) => {
         console.error(e);

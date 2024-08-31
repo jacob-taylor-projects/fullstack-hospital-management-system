@@ -1,0 +1,39 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <img
+        (click)="goHome()"
+        class="logo"
+        src="../../../assets/app-icon.png"
+        alt="company logo"
+      />
+      <img 
+        (click)="toggleMobileMenu()"
+        class="mobile-menu-button"
+        src="../../assets/mobile-menu.svg"
+        alt="mobile menu"
+      />
+    </div>
+    <div id="adtext" *ngIf="patient">
+       {{ patient.profile.firstName }} {{ patient.profile.lastName }}
+      
+    </div>
+    <div class="companyName" *ngIf="companyName && patient">{{companyName}}</div>
+    <div class="links">
+      <a class="link" routerLink="/patient-info">Home</a>
+      <a  class="link" routerLink="/patient-info">My Info</a>
+      <a  class="link" routerLink="/patients-doctors">My Doctors</a>
+      <a  class="link" routerLink="/patients-prescriptions">My Prescriptions</a>
+      <a  class="link" routerLink="/patients-procedures">My Procedures</a>
+      <a  class="link" routerLink="/patients-appointments">My Appointments</a>
+      <a (click)="logout()"><h1 class="link">Logout</h1></a>
+    </div>
+    <div *ngIf="toggleMenu" class="mobile-menu">
+        <a class="link" routerLink="/patient-info">Home</a>
+        <a  class="link" routerLink="/patient-info">My Info</a>
+        <a  class="link" routerLink="/patients-doctors">My Doctors</a>
+        <a  class="link" routerLink="/patients-prescriptions">My Prescriptions</a>
+        <a  class="link" routerLink="/patients-procedures">My Procedures</a>
+        <a  class="link" routerLink="/patients-appointments">My Appointments</a>
+        <a (click)="logout()"><h1 class="link">Logout</h1></a>
+    </div>
+  </nav>

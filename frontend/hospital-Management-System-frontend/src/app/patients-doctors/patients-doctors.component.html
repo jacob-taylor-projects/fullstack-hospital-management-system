@@ -1,0 +1,10 @@
+<app-patient-navmenu></app-patient-navmenu>
+<div class="row">
+    <h2>{{patientFirstName}} {{patientLastName}}'s Doctor List</h2>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4" *ngFor="let employee of employees">
+      <app-employee-card [employee]="employee" (click)="employeeDetails(employee.id)"></app-employee-card>
+    </div>
+  </div>

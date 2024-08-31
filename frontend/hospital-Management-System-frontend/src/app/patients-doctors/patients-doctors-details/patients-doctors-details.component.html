@@ -1,0 +1,14 @@
+<div class="patient-details-container">
+    <div class="patient-details-box">
+      <h2>Doctor Details</h2>
+      <p>First Name: {{ employee.profile.firstName }}</p>
+      <p>Last Name: {{ employee.profile.lastName }}</p>
+      <p>Email : {{ employee.profile.email }}</p>
+      <p>Phone Number : {{employee.profile.phoneNumber}}</p>
+      <!-- Add more fields as needed -->
+      <div class="button-container">
+        <button class="back-button" (click)="DoctorsPage()">Back</button>
+        
+      </div>
+    </div>
+  </div>

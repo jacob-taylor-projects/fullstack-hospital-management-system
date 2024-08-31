@@ -1,0 +1,23 @@
+<app-patient-navmenu></app-patient-navmenu>
+<div class="employee-details-container">
+    <div class="employee-details-box">
+      <h2>{{patientFirstName}} {{patientLastName}}'s Patient Details</h2>
+      <p>First Name: {{ patient.profile.firstName }}</p>
+      <p>Last Name: {{ patient.profile.lastName }}</p>
+      <p>Email : {{ patient.profile.email }}</p>
+      <p>Phone Number : {{patient.profile.phoneNumber}}</p>
+      <p>Age : {{patient.age}}</p>
+      <p>Gender : {{patient.gender}}</p>
+      <p>Address : {{patient.address}}</p>
+      <p>Prognosis : {{patient.prognosis}}</p>
+      <!-- Add more fields as needed -->
+      <div>
+        <button class="add-employee-btn" (click)="toggleUserOverlay()">Update</button>
+        
+      </div>
+    </div>
+  </div>
+<div *ngIf="showUserOverlay">
+    <app-update-patient-form (updateUserOverlayVisibility)="onOverlayVisibilityChange()"></app-update-patient-form>
+  </div>
+

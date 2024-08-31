@@ -1,0 +1,13 @@
+<app-patient-navmenu></app-patient-navmenu>
+<div class="prescription-list">
+    <h1>{{patientFirstName}} {{patientLastName}}'s Prescriptions</h1>
+    <div class="prescription-list">
+        <div class="prescription" *ngFor="let prescription of prescriptions">
+          <h2>{{ prescription.name }}</h2>
+          <p>{{ prescription.description }}</p>
+          <p>Prescribed by: {{ prescription.prescriber.profile.firstName }} {{ prescription.prescriber.profile.lastName }}</p>
+          <p>For: {{ prescription.prescribed.profile.firstName }} {{ prescription.prescribed.profile.lastName }}</p>
+          
+        </div>
+      </div>
+  </div>

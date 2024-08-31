@@ -1,0 +1,12 @@
+<app-patient-navmenu></app-patient-navmenu>
+<div class="procedure-list">
+    <h1>{{patientFirstName}} {{patientLastName}}'s Procedures</h1>
+    <div class="procedure-list">
+        <div class="procedure" *ngFor="let procedure of procedures">
+          <h2>{{ procedure.name }}</h2>
+          <p>{{ procedure.description }}</p>
+          <p>Doctor : {{ procedure.doctor.profile.firstName }} {{ procedure.doctor.profile.lastName }}</p>
+          <p>Patient: {{ procedure.patient.profile.firstName }} {{ procedure.patient.profile.lastName }}</p>
+        
+        </div>
+      </div>

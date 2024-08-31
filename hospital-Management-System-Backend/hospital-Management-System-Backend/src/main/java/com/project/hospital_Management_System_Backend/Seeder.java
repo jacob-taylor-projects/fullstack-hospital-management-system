@@ -341,14 +341,14 @@ public class Seeder implements CommandLineRunner {
         company1.setPrescriptions(new HashSet<Prescriptions>(Arrays.asList(prescriptions1,prescriptions2,prescriptions3,prescriptions4)));
         company1.setProcedures(new HashSet<Procedures>(Arrays.asList(procedures1,procedures2,procedures3,procedures4)));
 
-        company1.setName("Nashville Doctors");
-        company1.setDescription("Hospital staff for nashville location");
-        company1.setAnnouncements(new HashSet<Announcements>(Arrays.asList(announcement5, announcements6,announcements7,announcements8)));
-        company1.setEmployees(new HashSet<Employee>(Arrays.asList(employee3,employee4)));
-        company1.setPatients(new HashSet<Patient>(Arrays.asList(patient3,patient4)));
-        company1.setAppointments(new HashSet<Appointments>(Arrays.asList(appointment5,appointment6,appointment7,appointment8)));
-        company1.setPrescriptions(new HashSet<Prescriptions>(Arrays.asList(prescriptions5,prescriptions6,prescriptions7,prescriptions8)));
-        company1.setProcedures(new HashSet<Procedures>(Arrays.asList(procedures5,procedures6,procedures7,procedures8)));
+        company2.setName("Nashville Doctors");
+        company2.setDescription("Hospital staff for nashville location");
+        company2.setAnnouncements(new HashSet<Announcements>(Arrays.asList(announcement5, announcements6,announcements7,announcements8)));
+        company2.setEmployees(new HashSet<Employee>(Arrays.asList(employee3,employee4)));
+        company2.setPatients(new HashSet<Patient>(Arrays.asList(patient3,patient4)));
+        company2.setAppointments(new HashSet<Appointments>(Arrays.asList(appointment5,appointment6,appointment7,appointment8)));
+        company2.setPrescriptions(new HashSet<Prescriptions>(Arrays.asList(prescriptions5,prescriptions6,prescriptions7,prescriptions8)));
+        company2.setProcedures(new HashSet<Procedures>(Arrays.asList(procedures5,procedures6,procedures7,procedures8)));
 
         prescriptions1.setName("Zyphorin");
         prescriptions1.setDescription("25mg 2x a day");

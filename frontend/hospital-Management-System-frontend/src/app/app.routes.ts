@@ -15,25 +15,40 @@ import { EmployeesProceduresComponent } from './employees-procedures/employees-p
 import { EmployeeInfoComponent } from './employee-info/employee-info.component';
 import { EmployeesPatientsComponent } from './employees-patients/employees-patients.component';
 import { EmployeesPatientsDetailsComponent } from './employees-patients/employees-patients-details/employees-patients-details.component';
+import { PatientsAppointmentsComponent } from './patients-appointments/patients-appointments.component';
+import { PatientsPrescriptionsComponent } from './patients-prescriptions/patients-prescriptions.component';
+import { PatientsProceduresComponent } from './patients-procedures/patients-procedures.component';
+import { PatientsDoctorsComponent } from './patients-doctors/patients-doctors.component';
+import { PatientsDoctorsDetailsComponent } from './patients-doctors/patients-doctors-details/patients-doctors-details.component';
+import { PatientInfoComponent } from './patient-info/patient-info.component';
+import { EmployeeGuard } from '../services/employee.guard';
+import { PatientGuard } from '../services/patient.guard';
 
 
 
 export const routes: Routes = [
+    {path:'',component:EmployeeLoginComponent},
     { path: 'employee-login', component: EmployeeLoginComponent },
     {path:'patient-login',component:PatientLoginComponent},
-    {path:'employees',component:EmployeesComponent},
-    {path:'employee-details/:id',component:EmployeeDetailsComponent},
-    {path:'patients',component:PatientsComponent},
-    {path:'patient-details/:id',component:PatientDetailsComponent},
-    {path:'announcements',component:AnnouncementsComponent},
-    {path:'prescriptions',component:PrescriptionsComponent},
-    {path:'procedures',component:ProceduresComponent},
-    {path:'appointments',component:AppointmentsComponent},
-    {path:'employee-appointments',component:EmployeesAppointmentsComponent},
-    {path:'employee-prescriptions',component:EmployeesPrescriptionsComponent},
-    {path:'employee-procedures',component:EmployeesProceduresComponent},
-    {path:'employee-info',component:EmployeeInfoComponent},
-    {path:'employee-patients',component:EmployeesPatientsComponent},
-    {path:'employees-patients-details/:id',component:EmployeesPatientsDetailsComponent},
+    {path:'employees',component:EmployeesComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-details/:id',component:EmployeeDetailsComponent,canActivate:[EmployeeGuard]},
+    {path:'patients',component:PatientsComponent,canActivate:[EmployeeGuard]},
+    {path:'patient-details/:id',component:PatientDetailsComponent,canActivate:[EmployeeGuard]},
+    {path:'announcements',component:AnnouncementsComponent,canActivate:[EmployeeGuard]},
+    {path:'prescriptions',component:PrescriptionsComponent,canActivate:[EmployeeGuard]},
+    {path:'procedures',component:ProceduresComponent,canActivate:[EmployeeGuard]},
+    {path:'appointments',component:AppointmentsComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-appointments',component:EmployeesAppointmentsComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-prescriptions',component:EmployeesPrescriptionsComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-procedures',component:EmployeesProceduresComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-info',component:EmployeeInfoComponent,canActivate:[EmployeeGuard]},
+    {path:'employee-patients',component:EmployeesPatientsComponent,canActivate:[EmployeeGuard]},
+    {path:'employees-patients-details/:id',component:EmployeesPatientsDetailsComponent,canActivate:[EmployeeGuard]},
+    {path:'patients-appointments',component:PatientsAppointmentsComponent,canActivate:[PatientGuard]},
+    {path:'patients-prescriptions',component:PatientsPrescriptionsComponent,canActivate:[PatientGuard]},
+    {path:'patients-procedures',component:PatientsProceduresComponent,canActivate:[PatientGuard]},
+    {path:'patients-doctors',component:PatientsDoctorsComponent,canActivate:[PatientGuard]},
+    {path:'patients-doctors-details/:id',component:PatientsDoctorsDetailsComponent,canActivate:[PatientGuard]},
+    {path:'patient-info',component:PatientInfoComponent,canActivate:[PatientGuard]}
 ];
 

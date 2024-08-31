@@ -1,0 +1,48 @@
+.employee-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    margin: 0;
+  }
+  
+  .employee-details-box {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* adjust the width to your liking */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
+  
+  .employee-details-box h2 {
+    margin-top: 0;
+  }
+  
+  .employee-details-box p {
+    margin-bottom: 10px;
+  }
+
+  button {
+    border: 2px solid rgba(27, 160, 152, 0.8);
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+   margin-top: 10px;
+    padding: 10px 40px;
+    cursor: pointer;
+    transition: all 0.2s
+  }
+  
+  button:hover .submit-button {
+    border: 2px solid rgba(27, 160, 152, 0.8)
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* or space-around, or flex-end, etc. */
+  }
